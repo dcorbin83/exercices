@@ -6,22 +6,28 @@ class A
     public: 
        A(int x) : _x(x) {}
     
-    virtual void foo(){ std::cout << "A\n";}
+    virtual ~A(){}
+    
+    virtual void foo(){ std::cout << _a  << "\n";}
     
     int getX() const { return _x;}  ;
 
      protected:
       int _x;  
+      char * _a = "A";
 };
 
 class B: public A
 {
   public: 
-   B(int x) : A(x) {}
+   B(int x) : A(x) {
+       _a = "B";}
    B(int x, int y) : A(x) , _y(y) {}
-   virtual void foo(){ std::cout << "B\n";}
+
+    
    protected:
       int _y; 
+      
 };
 
 int main(void)
@@ -35,4 +41,3 @@ int main(void)
    
    return 0;
 }
-
