@@ -18,13 +18,13 @@ class Generique {
 };
 
 template <class T, class P>
-class Hineritance final : public Generique<T> {
+class Inheritance final : public Generique<T> {
   
   public: 
-   Hineritance(const T& attribute) : Generique<T>(attribute) {
+   Inheritance(const T& attribute) : Generique<T>(attribute) {
      _ptrAttribute = new P();
    }
-   ~Hineritance(){
+   ~Inheritance(){
      delete _ptrAttribute;
    }
   
@@ -35,7 +35,7 @@ class Hineritance final : public Generique<T> {
 
 int main() {
    
-   Hineritance <int,float> objH(10) ;;
+   Inheritance <int,float> objH(10) ;;
    Generique <int> objG(5);
    
   std::cout << objG.getAttribute() << std::endl; 
