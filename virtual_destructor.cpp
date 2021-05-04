@@ -17,12 +17,14 @@ A* factory(const std::string& ioType){
   if(ioType == "B"){
        return new B();
   }
+  std::cout <<"[warning] invalide type: " << ioType <<  "\n";
+  return nullptr;
 }
 int main(void)
 {
    
    A * Objb = factory("B"); //specialise object type A into type B
-
+   
    delete Objb; // if ~A()  is virtual -> should display B and A
    return 0;
 }
