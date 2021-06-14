@@ -21,11 +21,21 @@ template <class T, class P>
 class Inheritance final : public Generique<T> {
   
   public: 
-   Inheritance(const T& attribute) : Generique<T>(attribute) {
-     _ptrAttribute = new P();
+   Inheritance(const T& attribute,const P ptrAttribute) : Generique<T>(attribute) {
+     _ptrAttribute = new P(ptrAttribute);
    }
    ~Inheritance(){
      delete _ptrAttribute;
+   }
+   
+   P getPtrValueAttribute(){
+     
+     if(_ptrAttribute != nullptr){
+            return * _ptrAttribute;
+     } else {
+       throw "invalid ptr detection";
+     }
+
    }
   
   protected:
@@ -35,11 +45,12 @@ class Inheritance final : public Generique<T> {
 
 int main() {
    
-   Inheritance <int,float> objH(10) ;;
+
+   Inheritance <int,float> objH(10,145.04564) ;;
    Generique <int> objG(5);
    
   std::cout << objG.getAttribute() << std::endl; 
-  std::cout << objH.getAttribute() << std::endl; 
+  std::cout << objH.getPtrValueAttribute() << std::endl; 
 	
 	return 0;
 }
