@@ -17,6 +17,15 @@ template < class T >
     T getValAt(int x, int y) {
       return Data[x][y];
     }
+    void show(){
+      for (int y = 0; y < _cols; ++y) {
+         for (int x = 0; x < _raw; ++x) { 
+         std::cout << getValAt(x,y);
+         }
+         std::cout << "\n";
+      }
+        
+    }
     void setValAt(int x, int y, T v) {
       Data[x][y] = v;
     }
@@ -39,7 +48,8 @@ template < class T >
 int main() {
   Matrice < int > m(5, 5);
 
-  m.setValAt(2, 2, 10);
-  std::cout << m.getValAt(2, 2);
+  m.setValAt(2, 2, 9);
+  //std::cout << m.getValAt(2, 2);
+  m.show();
   return 0;
 }
